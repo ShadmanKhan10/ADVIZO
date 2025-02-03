@@ -181,7 +181,7 @@ app.post("/verify-payment", async (req, res) => {
     req.body;
 
   const hmac = crypto
-    .createHmac("sha256", "cIQ2KiejAMQDJJs6vagQdk81")
+    .createHmac("sha256", process.env.RAZORPAY_TEST_KEY_SECRET)
     .update(razorpay_order_id + "|" + razorpay_payment_id)
     .digest("hex");
 
